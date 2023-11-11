@@ -10,7 +10,7 @@ export const addCommentToPost = async (
   try {
     const { postId } = req.params;
     const { content } = req.body;
-    const author = req.user?._id; // Assuming you have user information in the request
+    const author = req.user._id; // Assuming you have user information in the request
 
     // Ensure the post exists
     const post = await Post.findById(postId);
@@ -57,7 +57,7 @@ export const updateComment = async (
   try {
     const { commentId } = req.params;
     const { content } = req.body;
-    const userId = req.user?._id;
+    const userId = req.user._id;
 
     const comment = await Comment.findById(commentId);
     if (!comment) {
@@ -87,7 +87,7 @@ export const deleteComment = async (
 ): Promise<Response> => {
   try {
     const { commentId } = req.params;
-    const userId = req.user?._id;
+    const userId = req.user._id;
 
     const comment = await Comment.findById(commentId);
     if (!comment) {

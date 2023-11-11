@@ -63,7 +63,7 @@ export const updatePost = async (
   try {
     const { id } = req.params;
     const { title, content } = req.body;
-    const userId = req.user?._id;
+    const userId = req.user._id;
 
     const post = await Post.findById(id);
 
@@ -94,7 +94,7 @@ export const deletePost = async (
 ): Promise<Response> => {
   try {
     const { id } = req.params;
-    const userId = req.user?._id;
+    const userId = req.user._id;
 
     const post = await Post.findById(id);
 
